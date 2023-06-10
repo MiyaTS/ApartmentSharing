@@ -1,0 +1,23 @@
+
+#accordionFlushExample{
+  padding-top: 100px;
+}
+
+.accordion-button[_ngcontent-fkr-c55]:not(.collapsed) {
+  box-shadow: var(--carolina-blue);
+}
+
+.accordion-button:focus {
+  z-index: 3;
+  border-color: var(--carolina-blue);
+  outline: 0;
+  box-shadow: var(--carolina-blue);
+}
+.accordion-button:hover {
+  z-index: 2;
+}
+.accordion-button:not(.collapsed) {
+  box-shadow: var(--carolina-blue);
+  color: var(--carolina-blue);
+  background-color: rgba(181, 201, 197, 10%);
+}

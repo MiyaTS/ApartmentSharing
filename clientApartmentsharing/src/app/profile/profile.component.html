@@ -1,0 +1,108 @@
+<app-menu></app-menu>
+
+<div class="container bootstrap snippets bootdey">
+  <div class="panel-body inf-content">
+    <div class="row">
+      <div class="col-md-4">
+        <img alt="" style="width:600px; height: 350px" title="" class="img-circle img-thumbnail isTooltip" src="{{userDTO.imageURL}}" data-original-title="Usuario">
+        <ul title="Ratings" class="list-inline ratings text-center">
+          <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <strong>Інформація про обліковий запис</strong><br>
+        <div class="table-responsive">
+          <table class="table table-user-information">
+            <tbody>
+            <tr>
+              <td>
+                <strong>
+                  <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                  ID облікового запису
+                </strong>
+              </td>
+              <td class="text-primary">
+                {{userDTO?.id}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>
+                  <span class="glyphicon glyphicon-user  text-primary"></span>
+                  Ім'я
+                </strong>
+              </td>
+              <td class="text-primary">
+                {{userDTO.firstName}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>
+                  <span class="glyphicon glyphicon-cloud text-primary"></span>
+                  Прізвище
+                </strong>
+              </td>
+              <td class="text-primary">
+                {{userDTO.lastName}}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong>
+                  <span class="glyphicon glyphicon-cloud text-primary"></span>
+                  Адреса
+                </strong>
+              </td>
+              <td class="text-primary">
+                {{userDTO.address}}
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong>
+                  <span class="glyphicon glyphicon-bookmark text-primary"></span>
+                  Нікнейм
+                </strong>
+              </td>
+              <td class="text-primary">
+                @{{userDTO.username}}
+              </td>
+            </tr>
+
+
+            <tr>
+              <td>
+                <strong>
+                  <span class="glyphicon glyphicon-eye-open text-primary"></span>
+                  Роль
+                </strong>
+              </td>
+              <td class="text-primary">
+                {{userDTO.userRole}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>
+                  <span class="glyphicon glyphicon-envelope text-primary"></span>
+                  Email
+                </strong>
+              </td>
+              <td class="text-primary">
+                {{userDTO.email}}
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

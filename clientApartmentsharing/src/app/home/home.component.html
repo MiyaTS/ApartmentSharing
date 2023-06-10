@@ -1,0 +1,482 @@
+
+
+<header class="header" data-header>
+  <div class="container">
+
+    <div class="overlay" data-overlay></div>
+
+    <a href="http://localhost:4200/home" class="logo">
+      <img src="../../assets/images/logo4.svg" alt="Rent logo">
+    </a>
+
+    <nav class="navbar" data-navbar>
+      <ul class="navbar-list">
+
+        <li>
+          <a href="http://localhost:4200/home" class="navbar-link" data-nav-link>Головна</a>
+        </li>
+
+        <li>
+          <a href="http://localhost:4200/feedback" class="navbar-link" data-nav-link>Відгуки</a>
+        </li>
+
+        <li>
+          <a href="http://localhost:4200/faqs"  class="navbar-link" data-nav-link>FAQS</a>
+        </li>
+        <li>
+          <a *ngIf="isAdmin" class="navbar-link" href="http://localhost:4200/admin">Адмін Панель</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+
+      <div class="header-contact">
+        <a href="tel:0958968685" class="contact-link">+38(095)896-86-85</a>
+
+        <span class="contact-time">Понеділок - Субота: 9:00 am - 6:00 pm</span>
+      </div>
+
+      <a class="btn" aria-labelledby="aria-label-txt">
+        <ion-icon name="apartment-outline"></ion-icon>
+
+        <span [routerLink]="['/apartmentList']" id="aria-label-txt">Шукати квартиру</span>
+      </a>
+
+      <a href="http://localhost:4200/profile" class="btn user-btn" aria-label="Profile">
+        <ion-icon name="person-outline"></ion-icon>
+      </a>
+
+      <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle Menu">
+        <span class="one"></span>
+        <span class="two"></span>
+        <span class="three"></span>
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+
+
+
+
+<main id="main-container">
+  <article>
+
+    <!--
+      - #HERO
+    -->
+    <section class="section hero" id="home">
+      <div class="container">
+
+        <div class="hero-content">
+          <h2 class="h1 hero-title">ПРОСТИЙ СПОСІБ ОРЕНДУВАТИ КВАРТИРУ</h2>
+
+          <p class="hero-text">
+            Відкриті у Львові!
+          </p>
+        </div>
+
+        <div class="hero-banner"></div>
+
+        <form class="hero-form" [formGroup]="rentForm" (ngSubmit)="onSubmit()">
+
+          <div class="input-wrapper">
+            <label for="rooms" class="input-label">Кількість кімнат</label>
+
+            <input formControlName="rooms" type="number" name="rooms" id="rooms" class="input-field"
+                   placeholder="Скільки кімнат бажаєте?" required [ngClass]="{'invalid': rentForm?.get('rooms')?.invalid && rentForm?.get('rooms')?.touched}">
+          </div>
+
+          <div class="input-wrapper">
+            <label for="price" class="input-label">Максимальна плата в місяць</label>
+
+            <input formControlName="price" type="number" name="price" id="price" class="input-field" placeholder="Вкажіть суму" required [ngClass]="{'invalid': rentForm?.get('price')?.invalid && rentForm?.get('price')?.touched}">
+          </div>
+
+          <div class="input-wrapper">
+            <label for="quarter" class="input-label">Район</label>
+
+            <select formControlName="quarter" name="quarter" id="quarter" class="input-field" required [ngClass]="{'invalid': rentForm?.get('quarter')?.invalid && rentForm?.get('quarter')?.touched}">
+              <option value="" disabled selected>Вкажіть район</option>
+              <option *ngFor="let element of quarter" [value]="element">{{element}}</option>
+            </select>
+          </div>
+
+          <button [routerLink]="['/apartmentList']" [queryParams]="{rooms: rentForm?.get('rooms')?.value, price: rentForm?.get('price')?.value, quarter: rentForm?.get('quarter')?.value}" type="submit" class="btn">Пошук</button>
+
+        </form>
+
+      </div>
+    </section>
+
+
+    <!--
+      - #FEATURED apartment
+    -->
+
+    <section class="section featured-apartment" id="featured-apartment">
+      <div class="container">
+
+        <div class="title-wrapper">
+          <h2 class="h2 section-title">Наявні квартири</h2>
+
+          <a [routerLink]="['/apartmentList']" class="featured-apartment-link">
+            <span>Дивитись більше</span>
+
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </a>
+        </div>
+
+<!--          <li *ngFor="let apartment of apartments | slice:0:6" >-->
+<!--            <app-apartment-card [childApartment]="apartment"></app-apartment-card>-->
+<!--          </li>-->
+          <app-apartment-card></app-apartment-card>
+<!--        </ul>-->
+
+      </div>
+    </section>
+
+<!--<app-apartment-card></app-apartment-card>-->
+
+
+
+    <!--
+        - #GET START
+      -->
+
+    <section class="section get-start">
+      <div class="container">
+
+        <h2 class="h2 section-title">Почніть з 4 простих кроків</h2>
+
+        <ul class="get-start-list">
+
+          <li>
+            <div class="get-start-card">
+
+              <div class="card-icon icon-1">
+                <ion-icon name="person-add-outline"></ion-icon>
+              </div>
+
+              <h3 class="card-title">Створіть профіль</h3>
+
+              <p class="card-text">
+                Створіть свій особистий профіль, заповнивши необхідні дані, щоб орендувати найкращу квартиру.
+              </p>
+
+
+            </div>
+          </li>
+
+          <li>
+            <div class="get-start-card">
+
+              <div class="card-icon icon-2">
+                <ion-icon name="bar-chart-outline"></ion-icon>
+              </div>
+
+              <h3 class="card-title">Оберіть свої критерії</h3>
+
+              <p class="card-text">
+                Розкажіть нам про ваші побажання щодо квартири: кількість кімнат, ціна оренди, розташування. Використовуйте наш потужний фільтр для точного налаштування ваших вимог.
+              </p>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="get-start-card">
+
+              <div class="card-icon icon-3">
+                <ion-icon name="person-outline"></ion-icon>
+              </div>
+
+              <h3 class="card-title">Знайдіть ідеальну квартиру</h3>
+
+              <p class="card-text">
+                Після вибору критеріїв фільтрації, перегляньте нашу базу даних, щоб знайти найкращі варіанти, які відповідають вашим потребам. Опис та фото покажуть вам повну картину.
+              </p>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="get-start-card">
+
+              <div class="card-icon icon-4">
+                <ion-icon name="card-outline"></ion-icon>
+              </div>
+
+              <h3 class="card-title">Зв'яжіться з нами</h3>
+
+              <p class="card-text">
+                Оберіть квартиру, яка вас зацікавила, і натисніть кнопку "Орендувати". Після цього напишіть коментар, який допоможе нам краще зрозуміти ваші побажання. Ми зв'яжемося з вами, щоб обговорити деталі та укласти угоду.
+              </p>
+
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </section>
+
+    <section class="section blog" id="blog">
+      <div class="container">
+
+        <h2 class="h2 section-title">Ми охоплюємо усі райони Львова</h2>
+
+        <ul class="blog-list has-scrollbar">
+
+          <li>
+            <div class="blog-card">
+
+              <figure class="card-banner">
+
+                <a href="#">
+                  <img src="./assets/images/1.jpeg" alt="Шевченківський" loading="lazy"
+                       class="w-100">
+                </a>
+
+                <a href="#" class="btn card-badge">Шевченківський</a>
+
+              </figure>
+
+              <div class="card-content">
+
+                <h3 class="h3 card-title">
+                  Шевченківський район пропонує спокійну атмосферу та зелені простори. Він відомий своїми живописними парками, які створюють ідеальну атмосферу для прогулянок та відпочинку.
+                </h3>
+
+              </div>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="blog-card">
+
+              <figure class="card-banner">
+
+                <a href="#">
+                  <img src="./assets/images/2.jpeg" alt="Личаківський" loading="lazy"
+                       class="w-100">
+                </a>
+
+                <a href="#" class="btn card-badge">Личаківський</a>
+
+              </figure>
+
+              <div class="card-content">
+
+                <h3 class="h3 card-title">
+                  Личаківський район є душею історичного Львова. Вулички, вкриті кам'яною бруківкою, старовинні будівлі та мальовничі площі - все це створює неповторний колорит цього району.
+                </h3>
+
+              </div>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="blog-card">
+
+              <figure class="card-banner">
+
+                <a href="#">
+                  <img src="./assets/images/3.jpeg" alt="Галицький" loading="lazy"
+                       class="w-100">
+                </a>
+
+                <a href="#" class="btn card-badge">Галицький</a>
+
+              </figure>
+
+              <div class="card-content">
+
+                <h3 class="h3 card-title">
+                  Галицький район є символом культурного розмаїття Львова. Тут ви знайдете чудові музеї, театри та кав'ярні, які зберігають атмосферу минулих епох.
+                </h3>
+
+              </div>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="blog-card">
+
+              <figure class="card-banner">
+
+                <a href="#">
+                  <img src="./assets/images/4.jpeg" alt="Сихівський" loading="lazy"
+                       class="w-100">
+                </a>
+
+                <a href="#" class="btn card-badge">Сихівський</a>
+
+              </figure>
+
+              <div class="card-content">
+
+                <h3 class="h3 card-title">
+                  Сихівський район відомий своїми сучасними кафе, ресторанами та вуличними фестивалями. Тут ви знайдете молодіжну енергію та веселість, які завжди звучать у повітрі.
+                </h3>
+
+              </div>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="blog-card">
+
+              <figure class="card-banner">
+
+                <a href="#">
+                  <img src="./assets/images/5.jpeg" alt="Франківський" loading="lazy"
+                       class="w-100">
+                </a>
+
+                <a href="#" class="btn card-badge">Франківський</a>
+
+              </figure>
+
+              <div class="card-content">
+
+                <h3 class="h3 card-title">
+                  Франківський район є жвавим та динамічним. Це місце, де поєднуються сучасні тенденції, активна культурна сцена та багатоцінна історія.
+                </h3>
+
+              </div>
+
+            </div>
+          </li>
+
+          <li>
+            <div class="blog-card">
+
+              <figure class="card-banner">
+
+                <a href="#">
+                  <img src="./assets/images/6.jpeg" alt="Залізничний" loading="lazy"
+                       class="w-100">
+                </a>
+
+                <a href="#" class="btn card-badge">Залізничний</a>
+
+              </figure>
+
+              <div class="card-content">
+
+                <h3 class="h3 card-title">
+                  Залізничний район є важливим транспортним вузлом Львова. Тут ви знайдете зручні залізничні та автобусні вокзали, а також сучасні торгові центри та місця для комфортного перебування.
+                </h3>
+
+              </div>
+
+            </div>
+          </li>
+
+        </ul>
+
+      </div>
+    </section>
+
+  </article>
+</main>
+
+
+
+
+
+<!--
+  - #FOOTER
+-->
+<footer class="footer">
+  <div class="container">
+
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <img src="../../assets/images/logo4.svg" alt="">
+        </a>
+
+        <p class="footer-text">
+          RentHome - Ваш ключ до комфорту та затишку в історичному Львові. Орендуйте з нами, щоб відчути домашній затишок!
+        </p>
+
+        <p class="copyright">©RentHome 2023. Всі права захищені.</p>
+
+      </div>
+
+      <div class="footer-list-container">
+        <p class="footer-list-title">Компанія</p>
+        <div class="footer-list">
+          <ul>
+            <li>
+              <a href="http://localhost:4200/home" class="footer-link">Головна</a>
+            </li>
+
+          </ul>
+
+          <ul>
+            <li>
+              <a href="http://localhost:4200/feedback" class="footer-link">Відгуки</a>
+            </li>
+
+            <li>
+              <a href="http://localhost:4200/faqs" class="footer-link">FAQS</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <ul class="aria-label-btn">
+        <a class="btn" aria-labelledby="aria-label-txt">
+          <span [routerLink]="['/apartmentList']" >Шукати квартиру</span>
+        </a>
+        <ul class="social-list">
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="mail-outline"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+      </ul>
+
+    </div>
+
+  </div>
+</footer>
+
+

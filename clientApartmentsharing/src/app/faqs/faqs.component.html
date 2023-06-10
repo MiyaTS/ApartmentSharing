@@ -1,0 +1,266 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+<header class="header" data-header>
+  <div class="container">
+
+    <div class="overlay" data-overlay></div>
+
+    <a href="http://localhost:4200/home" class="logo">
+      <img src="../../assets/images/logo4.svg" alt="Rent logo">
+    </a>
+
+    <nav class="navbar" data-navbar>
+      <ul class="navbar-list">
+
+        <li>
+          <a href="http://localhost:4200/home" class="navbar-link" data-nav-link>Головна</a>
+        </li>
+
+        <li>
+          <a href="http://localhost:4200/feedback" class="navbar-link" data-nav-link>Відгуки</a>
+        </li>
+
+        <li>
+          <a href="http://localhost:4200/faqs"  class="navbar-link" data-nav-link>FAQS</a>
+        </li>
+        <li>
+          <a *ngIf="isAdmin" class="navbar-link" href="http://localhost:4200/admin">Адмін Панель</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+
+      <div class="header-contact">
+        <a href="tel:0958968685" class="contact-link">+38(095)896-86-85</a>
+
+        <span class="contact-time">Понеділок - Субота: 9:00 am - 6:00 pm</span>
+      </div>
+
+      <a class="btn" aria-labelledby="aria-label-txt">
+        <ion-icon name="apartment-outline"></ion-icon>
+
+        <span [routerLink]="['/apartmentList']" id="aria-label-txt">Шукати квартиру</span>
+      </a>
+
+      <a href="#" class="btn user-btn" aria-label="Profile">
+        <ion-icon name="person-outline"></ion-icon>
+      </a>
+
+      <button class="nav-toggle-btn" data-nav-toggle-btn aria-label="Toggle Menu">
+        <span class="one"></span>
+        <span class="two"></span>
+        <span class="three"></span>
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+<main>
+  <div class="container mt-5 mb-5 col-md-6">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="text-center mb-5 h1">
+        <h2>Що таке RentHome?</h2>
+      </div>
+      <div class="accordion-item">
+        <h4 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            Що таке RentHome?
+          </button>
+        </h4>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+             data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">RentHome - це гнучкий сервіс для оренди квартир в Львові. Ми надаємо широкий вибір житла, що відповідає вашим потребам і бажанням. Ви можете легко знайти і забронювати квартиру через наш веб-сайт або мобільний додаток, без необхідності відвідувати офіс або робити багато дзвінків. </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h4 class="accordion-header" id="flush-headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            Які переваги оренди через RentHome?
+          </button>
+        </h4>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+             data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Ми пропонуємо простий і гнучкий спосіб оренди житла. Наші переваги включають:
+            <ul>
+              <li>Великий вибір квартир</li>
+              <li>Гнучкість бронювання</li>
+              <li>Комфорт і зручність</li>
+              <li>Високий рівень сервісу</li>
+              <li>Зручний веб-сайт</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h4 class="accordion-header" id="flush-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseThree" aria-expanded="false"
+                  aria-controls="flush-collapseThree">
+            Чи можу я орендувати квартиру на довгий термін?
+          </button>
+        </h4>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+             data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Так, наш сервіс дозволяє вам орендувати квартиру на довгий термін. Ви можете забронювати квартиру на кілька місяців відповідно до вашого бажання та потреб.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h4 class="accordion-header" id="flush-headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseFour" aria-expanded="false"
+                  aria-controls="flush-collapseFour">
+            Чи можу я переглянути житло перед бронюванням?
+          </button>
+        </h4>
+        <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
+             data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Так, на нашому сайті ви знайдете детальні описи та фотографію для кожної квартири, що дає вам змогу ознайомитись з умовами проживання перед тим, як зробити бронювання.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion accordion-flush" id="accordionFlushTwo">
+      <div class="text-center mt-5 mb-5 h1">
+        <h2>Почати користуватися RentHome</h2>
+      </div>
+      <div class="accordion-item">
+        <h4 class="accordion-header" id="flushTwo-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flushTwo-collapseOne" aria-expanded="false"
+                  aria-controls="flushTwo-collapseOne">
+            Хто може бути клієнтом сервісу?
+          </button>
+        </h4>
+        <div id="flushTwo-collapseOne" class="accordion-collapse collapse" aria-labelledby="flushTwo-headingOne"
+             data-bs-parent="#accordionFlushTwo">
+          <div class="accordion-body">Будь-яка людина, яка досягла віку 18 років може користуватися нашим сервісом.
+            RentHome працює з громадянами України, іноземцями та особами без громадянства.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h4 class="accordion-header" id="flushTwo-headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flushTwo-collapseTwo" aria-expanded="false"
+                  aria-controls="flushTwo-collapseTwo">
+            Як почати користуватися сервісом RentHome?
+          </button>
+        </h4>
+        <div id="flushTwo-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flushTwo-headingTwo"
+             data-bs-parent="#accordionFlushTwo">
+          <div class="accordion-body">Все просто. Зайдіть на наш вебсайт за допомогою будь-якого веб-браузера та пройдіть
+            реєстрацію на сайті.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h4 class="accordion-header" id="flushTwo-headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#flushTwo-collapseFour" aria-expanded="false"
+                  aria-controls="flushTwo-collapseFour">
+            Хто може використовувати мій обліковий запис?
+          </button>
+        </h4>
+        <div id="flushTwo-collapseFour" class="accordion-collapse collapse"
+             aria-labelledby="flushTwo-headingFour"
+             data-bs-parent="#accordionFlushTwo">
+          <div class="accordion-body">Ваш обліковий запис є особистим, тому використовувати його може тільки ви самі.
+            Передача вашого облікового запису іншим особам вважається порушенням правил нашого сервісу та може призвести до відключення від RentHome.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <img src="../../assets/images/logo4.svg" alt="">
+        </a>
+
+        <p class="footer-text">
+          RentHome - Ваш ключ до комфорту та затишку в історичному Львові. Орендуйте з нами, щоб відчути домашній затишок!
+        </p>
+
+        <p class="copyright">©RentHome 2023. Всі права захищені.</p>
+
+      </div>
+
+      <div class="footer-list-container">
+        <p class="footer-list-title">Компанія</p>
+        <div class="footer-list">
+          <ul>
+            <li>
+              <a href="http://localhost:4200/home" class="footer-link">Головна</a>
+            </li>
+
+          </ul>
+
+          <ul>
+            <li>
+              <a href="http://localhost:4200/feedback" class="footer-link">Відгуки</a>
+            </li>
+
+            <li>
+              <a href="http://localhost:4200/faqs" class="footer-link">FAQS</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <ul class="aria-label-btn">
+        <a class="btn" aria-labelledby="aria-label-txt">
+          <span [routerLink]="['/apartmentList']" >Шукати квартиру</span>
+        </a>
+        <ul class="social-list">
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="mail-outline"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+      </ul>
+
+    </div>
+
+  </div>
+</footer>
+
+

@@ -1,0 +1,49 @@
+button, a { transition: var(--transition); }
+
+.btn1 {
+  position: relative;
+  background: var(--background, var(--carolina-blue));
+  color: var(--color, var(--white));
+  min-width: var(--width, 40px);
+  min-height: var(--height, 40px);
+  padding: 5px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-14);
+  font-family: var(--ff-nunito);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-600);
+  overflow: hidden;
+}
+
+.btn ion-icon {
+  font-size: 22px;
+  --ionicon-stroke-width: 40px;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, hsla(0, 0%, 100%, 0.4), transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+}
+.card-title>a{
+  overflow: visible!important;
+  font-size: 23px!important;
+}
+.card-title-wrapper{
+  display: grid!important;
+  grid-template-columns: 2fr 1fr!important;
+}
+
+.btn:is(:hover, :focus) { box-shadow: var(--shadow-2); }
+
+.btn:is(:hover, :focus)::before { opacity: 1; }
+
+.btn-primary{
+  background-color: var(--carolina-blue)!important;
+  border-color: var(--carolina-blue)!important;
+}

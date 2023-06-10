@@ -1,0 +1,82 @@
+<ul class="featured-apartment-list">
+
+  <ng-container *ngFor="let apartment of apartments | slice:0:6">
+    <li *ngIf="apartment.status !== 'RENTED'">
+      <div class="featured-apartment-card">
+
+        <figure class="card-banner">
+          <img src="{{apartment.imageUrl}}" alt="apartment" loading="lazy" width="440" height="300"
+               class="w-100">
+        </figure>
+
+        <div class="card-content">
+
+          <div class="card-title-wrapper">
+            <h3 class="h3 card-title">
+              <a href="#">
+                {{apartment.location}}
+              </a>
+            </h3>
+
+            <data class="floor" value="2">{{apartment.floor}} поверх</data>
+          </div>
+
+          <ul class="card-list">
+
+            <li class="card-list-item">
+              <ion-icon name="people-outline"></ion-icon>
+              <span class="card-item-text" [innerHTML]="apartment.rooms + ' кімнат | ' + apartment.area + 'м<sup>2</sup>'"></span>
+            </li>
+
+
+            <li class="card-list-item">
+              <ion-icon name="business-outline"></ion-icon>
+
+              <span class="card-item-text">{{apartment.quarter}}</span>
+            </li>
+
+          </ul>
+
+          <div class="card-price-wrapper">
+
+            <p class="card-price">
+              <strong>{{apartment.price}} грн</strong> / місяць
+            </p>
+
+            <button (click)="onOpenModal(apartment)" class="btn1 fav-btn">Орендувати</button>
+          </div>
+
+        </div>
+
+      </div>
+    </li>
+  </ng-container>
+</ul>
+
+<div class="modal fade" id="updateReport" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateEmployeeModalLabel">Бажаєте орендувати {{editApartment?.quarter + ' ' + editApartment?.location}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #updateReport="ngForm" (ngSubmit)="onUpdateReport(message.value)">
+
+          <div class="form-group">
+            <label for="reportMessage">Бажаєте орендувати? Залиште нам свої контакти!</label>
+            <textarea #message [readOnly]="editApartment?.status === 'RENTED'" rows="6" ngModel="{{ editApartment?.reportMessage }}" name="reportMessage" class="form-control" id="reportMessage" placeholder="Вкажіть ваші контакти" required autocomplete="off">
+          </textarea>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Закрити</button>
+            <button (click)="onUpdateReport(message.value)" data-dismiss="modal" class="btn btn-primary" >Орендувати</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

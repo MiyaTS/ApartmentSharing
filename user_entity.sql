@@ -1,0 +1,3 @@
+INSERT INTO sharing.user_entity (id, email, first_name, last_name, password, user_role, username) VALUES (27, 'user', 'user', 'user', '$2a$10$JzOJGULCxstM0./f8lORfeVCrV7UkNsrLdGvyWgjsFyIzqJDQcPJe', 'USER', 'user');
+INSERT INTO sharing.user_entity (id, email, first_name, last_name, password, user_role, username) VALUES (9, 'admin@mail.com', 'Alan', 'Po', '$2a$10$cPGy3BLIsCVHAXkEz8oAtej/yPP5EmW12iJo72Z2V1jZp9MSaOe5e', 'ADMIN', 'admin');
+INSERT INTO sharing.user_entity (id, email, first_name, last_name, password, user_role, username) VALUES (26, 'manager', 'manager', 'manager', '$2a$10$iAzTDqv4k/79letvhwQoreaoMmxxpidX.xtiBnJ4/5nGdDWJ00Gn6', 'MANAGER', 'manager');
