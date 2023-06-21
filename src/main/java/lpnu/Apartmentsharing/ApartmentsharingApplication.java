@@ -32,4 +32,6 @@ public class ApartmentsharingApplication {
 		urlBasedCorsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
 		return new CorsFilter(urlBasedCorsConfigurationSource);
 	}
+	//https://mymodernmet.com/wp/wp-content/uploads/2020/10/cooper-baby-corgi-dogs-8.jpg
+	//https://miete.com.ua/apartment_thumbnails/ba3751ee3165214b92502a9459a3942b.jpg
 }

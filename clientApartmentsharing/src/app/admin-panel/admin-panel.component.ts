@@ -30,6 +30,7 @@ export class AdminPanelComponent implements OnInit {
   };
   isSuccessful = false;
   isSignUpFailed = false;
+  statusFilter: string = '';
   errorMessage = '';
   jwtSession!: JWTSession;
   isAdmin = false;
@@ -57,6 +58,22 @@ export class AdminPanelComponent implements OnInit {
       this.isManager = true;
     if (token.includes('user:create'))
       this.isAdmin = true;
+  }
+
+  onStatusChange(event: any) {
+    if (this.editApartment && event.target.value === 'OK') {
+      // @ts-ignore
+      this.editApartment.purchaserId = null;
+      this.getAllApartments();
+    }
+  }
+
+  public getFilteredApartments(): Apartment[] {
+    if (!this.statusFilter) {
+      return this.apartments;
+    }
+
+    return this.apartments.filter(apartment => apartment.status === this.statusFilter);
   }
 
   public navToHome() {
@@ -138,6 +155,7 @@ export class AdminPanelComponent implements OnInit {
       }
     );
   }
+
 
   public onDeleteApartment(apartmentId: number): void {
     this.apartmentService.deleteApartment(apartmentId).subscribe(

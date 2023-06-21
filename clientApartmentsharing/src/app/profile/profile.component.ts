@@ -14,6 +14,8 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class ProfileComponent implements OnInit {
   user!: UserEntity;
   userDTO !: UserDTO;
+  isEditingProfile = false;
+  editedUserDTO!: UserDTO;
 
   constructor(private userService: UserService, private tokenStorageService: TokenStorageService) {
     this.user = this.tokenStorageService.getUser();
@@ -27,10 +29,23 @@ export class ProfileComponent implements OnInit {
     this.userService.getUserEntityById(this.user.id).subscribe(
       (response: UserDTO) => {
         this.userDTO = response;
+        this.editedUserDTO = { ...this.userDTO };
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
       }
     );
+  }
+
+  public editProfile(): void {
+    this.isEditingProfile = true;
+  }
+
+  public saveProfileChanges(): void {
+    this.isEditingProfile = false;
+  }
+
+  public cancelProfileEdit(): void {
+    this.isEditingProfile = false;
   }
 }

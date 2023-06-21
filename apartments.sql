@@ -10,3 +10,9 @@ insert into sharing.apartments(apartment_id, area, image_url, location, price, q
 insert into sharing.apartments(apartment_id, area, image_url, location, price, quarter, report_message, rooms, status,floor) VALUES (5,48,'https://miete.com.ua/apartment_thumbnails/fa7b64be1193dbf62e53e7d259ac659b.jpg','Немирівська 7', 8200,'Залізничний','', 2, 0, 4);
 
 insert into sharing.apartments(apartment_id, area, image_url, location, price, quarter, report_message, rooms, status, floor) VALUES (6,52,'https://miete.com.ua/apartment_thumbnails/9bcec10a9d7573a684a80796d4063d95.jpg','Куліша 1', 10950,'Галицький','', 2, 0, 2);
+
+insert into sharing.apartments(apartment_id, area, image_url, location, price, quarter, report_message, rooms, status, floor) VALUES (7,60,'https://miete.com.ua/apartment_thumbnails/5323fa668645a90a9db6f94845fcdc2d.jpg','Сахарова 5', 8500, 'Франківський','', 2, 0, 4);
+
+insert into sharing.apartments(apartment_id, area, image_url, location, price, quarter, report_message, rooms, status, floor) VALUES (8,90,'https://miete.com.ua/apartment_thumbnails/9bcec10a9d7573a684a80796d4063d95.jpg','Краківська 17', 14500,'Галицький','', 3, 0, 5);
+
+insert into sharing.apartments(apartment_id, area, image_url, location, price, quarter, report_message, rooms, status, floor) VALUES (9,72,'https://miete.com.ua/apartment_thumbnails/ff5e12bbdfaa0a58cf24ce75ff09197c.jpg','Валова 16', 12200,'Галицький','', 2, 0, 7);
